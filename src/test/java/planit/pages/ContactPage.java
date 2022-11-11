@@ -3,7 +3,9 @@ package planit.pages;
 import org.junit.Assert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import planit.utilities.TestConfiguration;
 import planit.webdriver.ApplicationDriver;
 
 import java.time.Duration;
@@ -98,15 +100,11 @@ public class ContactPage extends PageBase {
     }
 
     public void waitForSendingFeedbackLoadingModal() {
-        WebDriverWait wait = new WebDriverWait(ApplicationDriver.getActiveDriver(), Duration.ofSeconds(60));
-//        wait.until( driver -> {
-//            try {
-//                return !driver.findElement(By.xpath("//div[.//h1 and .//div[@class='progress progress-info wait']]")).isDisplayed();
-//            } catch (Exception e) {
-//                return true;
-//            }
-//        });
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(1));
+        WebDriverWait wait = new WebDriverWait(ApplicationDriver.getActiveDriver(), Duration.ofSeconds(TestConfiguration.getDefaultWaitDuratation()));
+        wait.until(ExpectedConditions.invisibilityOf(sendingFeedbackLoadingModal));
         System.out.println("loading progress is completed.");
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestConfiguration.getDefaultWaitDuratation()));
     }
 
     public void validateSuccessfulSubmission() {

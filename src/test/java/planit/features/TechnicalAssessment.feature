@@ -1,7 +1,7 @@
 Feature: Planit- Technical Assessment
 
 
-  @TestTechnicalAssessment
+#  @TestTechnicalAssessment
   Scenario: Contact Page Error Messages
     Given I navigate to "Jupiter Toys" home page
     And I go to "contact" page
@@ -37,7 +37,7 @@ Feature: Planit- Technical Assessment
       | Nathan   | nathantest@email.com | Love it, Please have more stocks |
 
 
-  @TestTechnicalAssessment
+#  @TestTechnicalAssessment
   Scenario: Contact Page Error Messages
     Given I navigate to "Jupiter Toys" home page
     And I go to "shop" page
